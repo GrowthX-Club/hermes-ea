@@ -1,0 +1,23 @@
+name: growthx-ea
+version: 0.1.0
+manifest_version: 2
+description: Listen-only WhatsApp inbox for your Executive Assistant. Stores incoming messages locally for a morning brief and never lets the agent message anyone but you.
+author: GrowthX
+license: MIT
+homepage: https://github.com/GrowthX-Club/hermes-ea
+tags: [whatsapp, executive-assistant, morning-brief, growthx]
+provides_tools:
+  - wa_inbox
+  - wa_read
+  - wa_waiting_on_me
+  - wa_set_category
+  - wa_mark_handled
+  - wa_exclude
+provides_hooks:
+  - pre_gateway_dispatch
+  - pre_tool_call
+config_schema:
+  retention_days:
+    type: int
+    default: 14
+    description: Days of WhatsApp messages to keep before they are deleted.
